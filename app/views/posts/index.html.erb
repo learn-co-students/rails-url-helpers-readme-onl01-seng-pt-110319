@@ -1,0 +1,21 @@
+
+<%# what I use to do %>
+<%#<% @posts.each do |post| %>
+  <%#
+  <div><a href='<%= "/posts/#{post.id}" %><%#'><%= post.title %><%#</a></div>
+<% end %>
+
+<%# refactor so that the link is shorter code link_to replaces href and title goes before relative path  %>
+<%#<% @posts.each do |post| %>
+  <%#<div><%= link_to post.title, "/posts/#{post.id}" %><%#</div>
+<% end %>
+
+<%# refactored again so no longer hard-coded and uses string interpolation %>
+<%#<% @posts.each do |post| %>
+  <%#<div><%= link_to post.title, post_path(post.id) %><%#</div>
+<% end %>
+
+<%# refactored once more rails knows if you pass the object as an argument it will automatically use the id attribute %>
+<% @posts.each do |post| %>
+  <div><%= link_to post.title, post_path(post) %></div>
+<% end %>
